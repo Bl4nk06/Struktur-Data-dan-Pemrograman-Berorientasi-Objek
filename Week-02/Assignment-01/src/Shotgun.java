@@ -6,17 +6,17 @@
 class Shotgun extends FireArms {
     public Shotgun(String brand, String series) {
         super(brand, series);
-        System.out.println("[UNIT READY] Shotgun " + getBrand() + " " + getSeries());
+        System.out.println("[UNIT CREATED] Shotgun " + getBrand() + " " + getSeries());
     }
 
     // Override method startFire() dan reload()
     // yang didefinisikan di class FireArms.
     @Override
     public void startFire() {
-        System.out.println("[CHUCK-POW!] Wide spread shot from " + getSeries() + "!");
+        System.out.println("[BANG!] Wide spread shot from " + getSeries() + "!");
     }
     @Override
     public void reload() {
-        System.out.println("[RELOAD] Inserting shells into " + getSeries());
+        System.out.println("[RELOAD] Change drum mag for " + getSeries());
     }
 }

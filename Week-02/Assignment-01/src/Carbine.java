@@ -6,7 +6,7 @@
 public class Carbine extends FireArms {
     public Carbine(String brand, String series) {
         super(brand, series);
-        System.out.println("[CARBINE CREATED] " + getBrand() + " " + getSeries());
+        System.out.println("[UNIT CREATED] Carbine " + getBrand() + " " + getSeries());
     }
 
     // Override method startFire() dan reload()

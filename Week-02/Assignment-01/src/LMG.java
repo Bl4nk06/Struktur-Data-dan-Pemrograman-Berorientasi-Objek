@@ -6,14 +6,14 @@
 class LMG extends FireArms {
     public LMG(String brand, String series) {
         super(brand, series);
-        System.out.println("[LMG CREATED] " + getBrand() + " " + getSeries());
+        System.out.println("[UNIT CREATED] LMG " + getBrand() + " " + getSeries());
     }
 
     // Override method startFire() dan reload()
     // yang didefinisikan di class FireArms.
     @Override
     public void startFire() {
-        System.out.println("[RATATATA!] " + getSeries() + " suppressing fire initiated!");
+        System.out.println("[RATATATA!] Belt fed " + getSeries() + " suppressing fire initiated!");
     }
     @Override
     public void reload() {
