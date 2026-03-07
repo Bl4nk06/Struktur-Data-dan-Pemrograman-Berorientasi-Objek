@@ -1,49 +1,35 @@
-# Dokumentasi Implementasi OOP: Firearms Project
+## 4 Pillars of OOP
+Di programming berorientasi objek (OOP), terdapat empat pilar utama yang menjadi dasar dalam pengembangan perangkat lunak:
 
-Dokumen ini menjelaskan implementasi empat pilar OOP menggunakan studi kasus sistem senjata api (*Firearms*).
+### 1. Encapsulation (Enkapsulasi)
+Enkapsulasi adalah konsep menyembunyikan detail implementasi suatu objek dan hanya menyediakan antarmuka yang diperlukan untuk berinteraksi dengan objek tersebut. Ini membantu menjaga integritas data dan mencegah akses langsung ke atribut atau metode yang tidak diinginkan.
 
----
+### 2. Inheritance (Pewarisan)
+Pewarisan memungkinkan sebuah kelas untuk mewarisi sifat dan perilaku dari kelas lain. Kelas yang mewarisi disebut subclass atau child class, sedangkan kelas yang diwarisi disebut superclass atau parent class. Ini mempromosikan penggunaan kembali kode dan memudahkan pemeliharaan.
 
-## 1. Abstraksi (Abstraction)
-Menyembunyikan detail mekanis yang rumit dan hanya mengekspos fungsi utama seperti menembak.
-* **Implementasi:** Menggunakan `abstract class FireArms`.
+### 3. Polymorphism (Polimorfisme)
+Polimorfisme adalah kemampuan suatu objek untuk mengambil banyak bentuk. Dalam OOP, ini berarti bahwa objek dari kelas yang berbeda dapat diperlakukan sebagai objek dari kelas yang sama melalui pewarisan. Polimorfisme memungkinkan metode yang sama untuk berperilaku berbeda pada kelas yang berbeda.
 
-## 2. Pewarisan (Inheritance)
-Memungkinkan kelas spesifik untuk mewarisi atribut dasar dari kelas induk.
-* **Implementasi:** `class Carbine extends FireArms`.
+### 4. Abstraction (Abstraksi)
+Abstraksi adalah konsep menyembunyikan detail kompleks dan hanya menampilkan fitur penting dari suatu objek. Ini membantu dalam mengurangi kompleksitas dan meningkatkan efisiensi dengan fokus pada apa yang dilakukan objek daripada bagaimana cara kerjanya. Abstraksi sering dicapai melalui penggunaan kelas abstrak atau antarmuka.
 
-## 3. Polimorfisme (Polymorphism)
-Kemampuan objek untuk merespons metode yang sama dengan cara yang berbeda.
-* **Implementasi:** Metode `startFire()` dapat di-*override* oleh jenis senjata lain (misal: Shotgun atau Sniper) dengan logika suara atau efek yang berbeda.
-
-## 4. Enkapsulasi (Encapsulation)
-Menjaga variabel seperti `brand` dan `model` agar tidak diubah sembarangan dari luar kelas.
-* **Implementasi:** Biasanya menggunakan akses `private` pada variabel dan menyediakan `public getter/setter`.
-
----
-
-## Contoh Kode Java
-
-```java
-// Pilar: Abstraksi
+```Java
+// Abstract class
 abstract class FireArms {
-    // Definisi umum tanpa detail implementasi
-    public abstract void startFire();
+  // Abstract method (does not have a body)
+  public abstract void startFire();
+  public abstract void reload();
 }
 
-// Pilar: Inheritance (Pewarisan)
+// Subclass (inherit from FireArms)
 class Carbine extends FireArms {
-    private String brand;
-    private String model;
 
-    public Carbine(String brand, String model) {
-        this.brand = brand;
-        this.model = model;
-    }
+  // Implementasi metode abstrak
+  public void startFire() {
+    System.out.println("[STARTS FIRING] Shots fire for " + getBrand() + " " + getSeries());
+  }
 
-    // Pilar: Polimorfisme (Overriding)
-    @Override
-    public void startFire() {
-        System.out.println("[STARTS FIRING] Shots fire for " + brand + " " + model);
-    }
+  public void reload() {
+    System.out.println("[RELOAD] Magazine replaced for " + getBrand() + " " + getSeries());
+  }
 }
