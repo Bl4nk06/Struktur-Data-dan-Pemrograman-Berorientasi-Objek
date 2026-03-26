@@ -121,10 +121,6 @@ public class InventoryApp {
 ---
 ## 4. Screenshot Output
 
-### Output Mermaid
-![Output Program](assets/Mermaid.png)
-
-
 ### Output Kode Java
 ![Output Program](Assets/Output.png)
 
